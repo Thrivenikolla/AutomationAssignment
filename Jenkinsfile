@@ -42,7 +42,7 @@ pipeline {
 		steps{
 		    script{
 			 dockerImage = docker.build("thrivenik/dockerisedtomcat")
-			 docker.withRegistry('https://hub.docker.com', registryCredential) {
+			 docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
                          dockerImage.push("$BUILD_NUMBER")
                          dockerImage.push('latest')
 			 }
