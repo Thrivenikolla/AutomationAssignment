@@ -100,6 +100,5 @@ pipeline {
                 sh "docker rm -f dockerisedtomcat"
 		//sh 'docker-compose down'	
                  }
-             }
-	    
+             }  
 }
