@@ -81,7 +81,7 @@ pipeline {
 	stage('Deploy on tomcat in VM'){   
 		 //deploying on VM (eg Production Environment)
                   steps{
-                       deploy adapters: [tomcat9(credentialsId: 'bd198682-9ac4-4fc7-8669-922e90d3093b', path: '', url: 'https://hub.docker.com/repository/create?namespace=thrivenik')], contextPath: 'musicstore', onFailure: false, war: 'musicstore/target/*.war'
+                       deploy adapters: [tomcat9(credentialsId: 'Tomcat_ubuntuwsl', path: '', url: 'https://hub.docker.com/repository/create?namespace=thrivenik')], contextPath: 'musicstore', onFailure: false, war: 'musicstore/target/*.war'
 		       sh 'curl -sL --connect-timeout 20 --max-time 30 -w "%{http_code}\\\\n" "https://hub.docker.com/repository/create?namespace=thrivenik/musicstore/index.html" -o /dev/null'
 		       script{
                        def response = sh(script: 'curl https://hub.docker.com/repository/create?namespace=thrivenik/musicstore/version.html', returnStdout: true)
