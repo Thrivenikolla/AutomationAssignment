@@ -91,7 +91,7 @@ pipeline {
 post {
         // Clean after build
         always {
-		sh "docker rm -f dockerisedtomcat"
+		//sh "docker rm -f dockerisedtomcat"
             cleanWs(cleanWhenNotBuilt: false,
                     deleteDirs: true,
                     disableDeferredWipeout: true,
