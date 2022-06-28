@@ -88,15 +88,10 @@ pipeline {
         }//stages closed
 	
 	//always running docker rm to remove dockerisedtomcat image and docker-compose down for selenium
-	post{
-           always{
-                sh "docker rm -f dockerisedtomcat"
-		//sh 'docker-compose down'	
-                 }
-             }  
 post {
         // Clean after build
         always {
+		sh "docker rm -f dockerisedtomcat"
             cleanWs(cleanWhenNotBuilt: false,
                     deleteDirs: true,
                     disableDeferredWipeout: true,
