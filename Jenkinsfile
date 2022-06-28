@@ -50,13 +50,6 @@ pipeline {
 		    }
 	  }    
 	    
-	stage('Running the tomcat container') {
-		//running tomcat container with name dockerisedtomcat using the published image, port is 9090
-		steps{
-	         sh 'docker run -d --name dockerisedtomcat -p 9090:8080 thrivenik/dockerisedtomcat:latest'
-	        }
-	 }
-	    
 	/*  stage('Compose up for selenium test') {
 		//building selenium grid for testing
                 steps {
